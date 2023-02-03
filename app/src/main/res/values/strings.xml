@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ваш чек-лист</string>
+    <string name="edit_item_text">Edit</string>
+    <string name="edit_default_text">Select the desired position</string>
+</resources>

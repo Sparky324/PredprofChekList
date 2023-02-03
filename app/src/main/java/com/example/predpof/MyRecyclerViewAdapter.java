@@ -62,19 +62,11 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             myTextView = itemView.findViewById(R.id.productName);
             itemView.setOnClickListener(this);
 
-            deleteButton = itemView.findViewById(R.id.deleteButton);
-
-            deleteButton.setOnClickListener(this);
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            if (view.equals(deleteButton)) {
-                removeItem(getAdapterPosition());
-            } else if (mClickListener != null) {
-                mClickListener.onItemClick(view, getAdapterPosition());
-            }
         }
     }
 
@@ -90,23 +82,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         void onItemClick(View view, int position);
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    public void removeItem(int position) {
-        SharedPreferences sharedPreferences = this.mContext.getSharedPreferences("mypref", Context.MODE_PRIVATE);
-        Set<String> set = sharedPreferences.getStringSet("items_s", new HashSet<>());
-        ArrayList<String> items_s = new ArrayList<>(set);
-        items_s.remove(position);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        Set<String> set1 = new HashSet<>(items_s);
-        editor.putStringSet("items_s", set1);
-        editor.apply();
-
-        mData.remove(position);
-        adapter.notifyItemRemoved(position);
-        adapter.notifyItemRangeChanged(position, mData.size());
-        adapter.notifyDataSetChanged();
-
-    }
 }
 
 //TODO: доделать удаление (не обновляется активность)

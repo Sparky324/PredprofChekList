@@ -17,13 +17,4 @@
         android:textSize="20sp"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <Button
-        android:id="@+id/deleteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@android:color/transparent"
-        android:onClick="onDeleteClick"
-        android:text="X" />
-
 </LinearLayout>

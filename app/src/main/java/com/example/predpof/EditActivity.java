@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -64,7 +65,24 @@ public class EditActivity extends AppCompatActivity {
         finish();
     }
 
+    public void onDeleteClick(View view) {
+        Spinner spinner = findViewById(R.id.spinner);
+        sharedPreferences = getSharedPreferences("mypref", Context.MODE_PRIVATE);
+        Set<String> set = sharedPreferences.getStringSet("items_s", new HashSet<>());
+        ArrayList<String> items_s = new ArrayList<>(set);
+
+        String el = spinner.getSelectedItem().toString();
+        int idx = items_s.indexOf(el);
+        items_s.remove(idx);
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Set<String> set1 = new HashSet<>(items_s);
+        editor.putStringSet("items_s", set1);
+        editor.apply();
+
+        Toast.makeText(EditActivity.this, "Удалено!", Toast.LENGTH_LONG).show();
+
+        finish();
+    }
 
 }
-
-//TODO: доделать удаление, попробовать через адаптер еще раз

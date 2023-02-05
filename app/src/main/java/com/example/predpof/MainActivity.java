@@ -74,22 +74,9 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         this.items_s = new ArrayList<>(set);
     }
 
-    //public void recyclerViewListClicked(View v, int position) {}
-
-    public void add(View view) {
-        onRestart();
-
-        EditText edit = this.findViewById(R.id.editText);
-        this.items_s.add(edit.getText().toString());
-        edit.setText("");
-        adapter.notifyItemInserted(this.items_s.size() - 1);
-
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        Set<String> set = new HashSet<>(items_s);
-        editor.putStringSet("items_s", set);
-        editor.apply();
-
-        onRestart();
+    public void onAddClick(View view) {
+        Intent intent = new Intent(MainActivity.this, AddingActivity.class);
+        startActivity(intent);
     }
 
     public void onCameraClick(View view) {

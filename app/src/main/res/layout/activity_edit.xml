@@ -11,10 +11,12 @@
         android:layout_width="392dp"
         android:layout_height="52dp"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="20dp"
-        android:contentDescription="Choose item"
 
+        android:contentDescription="Choose item"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.756"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,7 +36,7 @@
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/saveButton"
+        android:id="@+id/saveRed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
@@ -43,11 +45,11 @@
         android:onClick="onSaveClick"
         android:text="Сохранить"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/deleteButtonNew"
+        app:layout_constraintEnd_toStartOf="@+id/remove"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/deleteButtonNew"
+        android:id="@+id/remove"
         android:layout_width="104dp"
         android:layout_height="48dp"
         android:layout_marginStart="10dp"
@@ -57,6 +59,6 @@
         android:text="Удалить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/saveButton" />
+        app:layout_constraintStart_toEndOf="@+id/saveRed" />
 
 </android.support.constraint.ConstraintLayout>
